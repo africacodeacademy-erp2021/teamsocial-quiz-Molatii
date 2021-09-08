@@ -1,0 +1,141 @@
+.App {
+  align-content: center;
+  text-align: center;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+header{
+  width: 100%;
+  height: 5rem;
+    align-items: center;
+    background-color: #423fdd;
+  
+}
+
+.my_title{
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+
+
+}
+.player{
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+}
+.cat{
+  text-align: center;
+  font-size: 10px;
+  color: rgb(26, 10, 168);
+}
+
+.my_title2{
+  text-align: center;
+  font-size: 10px;
+  color: rgb(7, 4, 34);
+  
+
+}
+
+.data{
+  border: 2px solid rgb(84, 94, 233);
+  text-align: left;
+
+}
+
+.my_labels{
+  color: #050505;
+  background: #ffffff;
+  text-align: left;
+  
+
+}
+
+.register_form{
+
+  text-align: center; 
+
+
+}
+.input{
+
+  text-align: center;
+}
+button{
+
+  align-content: center;
+  background-color: #423fdd;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: bold;
+  
+}
+main {
+
+  text-align: center;
+  align-items: center;
+  margin: 3rem auto;
+  width: 90%;
+  max-width:  80rem;
+
+}
+
+.my_btn{
+
+text-transform:uppercase;
+color:white;
+font-size:10px;
+font-weight:300;
+padding:30px;
+transition:all ease 0.5s;
+
+}
+.my_btn:hover {
+ 
+  color:white;
+  background:#11536b;
+  box-shadow: 0 0 16px #25be9d, 0 0 40px #37c73e;
+  transition-delay: 0.1s;
+
+
+
+  } 
+
+  .btn {
+    text-align: center;
+    align-items: center;
+    color:white;
+    font-size:13px;
+    background-color: #423fdd;
+  }
+.line {
+  
+  border: 1px solid #11536b;
+}
+
+
+.input{
+
+  text-align: center;
+}
+
+ p {
+
+  color: #e90a0a;
+}
+.choose{
+  text-align: center;
+  color: #423fdd;
+}
+.btns{
+  align-items: center;
+}
