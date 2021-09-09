@@ -5,14 +5,13 @@ import Mathquestions from "./questions_categories/math_questions";
 import { Link } from 'react-router-dom';
 import '../App.css';
 import { User } from './User';
-import { useState } from 'react';
 import { useContext } from 'react';
-import Login from './login';
 
- function Categories() {
+
+function Categories() {
     const msg = useContext(User);
     
-    ////
+    
     const playername= JSON.stringify(localStorage.getItem('username'));
     const myuserone = playername.replace('"','');
     const myuser = myuserone.replace('"','');        

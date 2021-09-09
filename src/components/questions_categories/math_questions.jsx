@@ -11,19 +11,17 @@ import './answer.css';
     {
         questionText: '12 + 12 = ?',
         answerOptions: [
-            { answerText: '22', isCorrect: true },
-            { answerText: '66', isCorrect: false },
-            { answerText: '345', isCorrect: false },
+            { answerText: 'True', isCorrect: true },
+            { answerText: 'False', isCorrect: false },
            
-        ],
+           ],
     },
     {
         questionText: '79 - 8 = ?',
         answerOptions: [
-            { answerText: '71', isCorrect: true },
-            { answerText: '70', isCorrect: false },
-            { answerText: '72', isCorrect: false },
-            
+            { answerText: 'True', isCorrect: true },
+            { answerText: 'False', isCorrect: false },
+                   
         ],
     },
     {
@@ -113,8 +111,9 @@ import './answer.css';
 
 const [currentQuestion, SetCurrentQuestion] = useState(0);
 const [showScore, SetShowScore] = useState(false);
+const random_question = Math.floor(Math.random()* questions.length);
 const [score, SetScore] = useState(0);
-const bb = " : "; 
+const space = " : "; 
 
 const handleAnswerButtonClick = (isCorrect) => {
 if (isCorrect === true) {
@@ -156,19 +155,19 @@ return (
             <div className='question-count'>
             <span>Question {currentQuestion + 1 }
 
-             {bb}
+             {space}
             
             </span>{questions.length }
             </div>
             <div className='answer-section'>
            
-            {questions[currentQuestion].questionText}
+            {questions[random_question].questionText}
             </div>
             </div>
 
            <div className='answer-section'>
            {
-              questions[currentQuestion].answerOptions.map((answerOptions) => (
+              questions[random_question].answerOptions.map((answerOptions) => (
 
                 <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>
                 {answerOptions.answerText}</button>

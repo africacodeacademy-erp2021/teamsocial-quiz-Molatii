@@ -23,7 +23,7 @@ const MyForm = (callback, validation) => {
     setErrors(validation(values));
     setIsSubmitting(true);
     
-    //console.log(values.username);
+    console.log(values.username);
    
   };
 

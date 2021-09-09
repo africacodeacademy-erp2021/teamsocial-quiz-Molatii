@@ -28,12 +28,12 @@ import './answer.css';
           ],
       },
       {
-          questionText: 'How many mounths are there in a year',
-          answerOptions: [
-              { answerText: '12', isCorrect: true },
-              { answerText: '4', isCorrect: false },
-              { answerText: '6', isCorrect: false },
-             
+        questionText: 'There are 12 mounths in a year',
+        answerOptions: [
+            { answerText: 'True', isCorrect: true },
+            { answerText: 'False', isCorrect: false },
+        
+         
           ],
       },
       {
@@ -115,7 +115,8 @@ import './answer.css';
 const [currentQuestion, SetCurrentQuestion] = useState(0);
 const [showScore, SetShowScore] = useState(false);
 const [score, SetScore] = useState(0);
-const bb = " : "; 
+const random_question = Math.floor(Math.random()* questions.length);
+const space = " : "; 
 
 const handleAnswerButtonClick = (isCorrect) => {
 if (isCorrect === true) {
@@ -158,19 +159,19 @@ return (
             <div className='question-count'>
               <span>Question {currentQuestion + 1 }
 
-               {bb}
+               {space}
               
               </span>{questions.length }
             </div>
             <div className='answer-section'>
              
-            {questions[currentQuestion].questionText}
+            {questions[random_question].questionText}
             </div>
           </div>
 
           <div className='answer-section'>
             {
-             questions[currentQuestion].answerOptions.map((answerOptions) => (
+             questions[random_question].answerOptions.map((answerOptions) => (
                 <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
               ))
             }

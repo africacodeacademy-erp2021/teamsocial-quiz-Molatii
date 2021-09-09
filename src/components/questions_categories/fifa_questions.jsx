@@ -10,12 +10,12 @@ const msg = useContext(User);
 
   const questions = [
     {
-        questionText: 'when is the next World Cup ?',
-        answerOptions: [
-            { answerText: '2022', isCorrect: true },
-            { answerText: '2023', isCorrect: false },
-            { answerText: '2024', isCorrect: false },
-           
+      questionText: 'The next World Cup is in 2022 ?',
+      answerOptions: [
+          { answerText: 'True', isCorrect: true },
+          { answerText: 'False', isCorrect: false },
+    
+       
         ],
     },
     {
@@ -37,12 +37,12 @@ const msg = useContext(User);
         ],
     },
     {
-        questionText: 'S.A stands for',
-        answerOptions: [
-            { answerText: 'South Africa', isCorrect: true },
-            { answerText: 'South Maseru ', isCorrect: false },
-            { answerText: 'South America', isCorrect: false },
-          
+      questionText: 'S.A stands for South Africa',
+      answerOptions: [
+          { answerText: 'True', isCorrect: true },
+          { answerText: 'False ', isCorrect: false },
+         
+        
            
         ],
     },
@@ -114,8 +114,9 @@ const msg = useContext(User);
 
 const [currentQuestion, SetCurrentQuestion] = useState(0);
 const [showScore, SetShowScore] = useState(false);
+const random_question = Math.floor(Math.random()* questions.length);
 const [score, SetScore] = useState(0);
-const bb = " : "; 
+const space = " : "; 
 
 const handleAnswerButtonClick = (isCorrect) => {
 if (isCorrect === true) {
@@ -156,19 +157,19 @@ SetShowScore(true)
           <div className='question-count'>
             <span>Question {currentQuestion + 1 }
 
-             {bb}
+             {space}
             
             </span>{questions.length }
           </div>
           <div className='answer-section'>
            
-          {questions[currentQuestion].questionText}
+          {questions[random_question].questionText}
           </div>
         </div>
 
         <div className='answer-section'>
           {
-           questions[currentQuestion].answerOptions.map((answerOptions) => (
+           questions[random_question].answerOptions.map((answerOptions) => (
               <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
             ))
           }
