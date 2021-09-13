@@ -113,79 +113,184 @@ import './answer.css';
   ];
 
 const [currentQuestion, SetCurrentQuestion] = useState(0);
+const [random, setRandom] = useState(questions);
 const [showScore, SetShowScore] = useState(false);
+
+
+//shuffle and display randomly
+function shuffle_questions(array){
+
+    var number = array.length,
+    temp,
+    index;
+ while(number > 0){
+
+    index = Math.floor(Math.random() * number);
+    number--;
+
+    temp = array[number];
+    array[number] = array[index];
+    array[index] = temp;
+
+}
+   return array;
+} 
+
+//drop down option
+const [option,setOption] = useState();
+const [selected_num, setSelected_num] = useState(10);
+  function optionChange(event){
+
+    setOption(event.target.value);
+     setSelected_num(event.target.value);
+
+       if(selected_num == 5){
+
+         shuffle_questions(questions);
+         questions.splice(5,5);
+         let temp = questions;
+         setRandom(temp);
+         
+
+       }else if(selected_num == 7){
+
+        shuffle_questions(questions);
+        questions.splice(7,3);
+        let temp = questions;
+        setRandom(temp);      
+
+       }else{
+
+        shuffle_questions(questions);
+        questions.splice(10,10);
+        let temp = questions;
+        setRandom(temp);
+       
+
+       }
+
+        return selected_num;
+  }
+
+
 const [score, SetScore] = useState(0);
-const random_question = Math.floor(Math.random()* questions.length);
 const space = " : "; 
 
+//add 1 to score if answer is correct
 const handleAnswerButtonClick = (isCorrect) => {
 if (isCorrect === true) {
-  SetScore(score + 1);
+SetScore(score + 1);
 }
 
 const nextQuetions = currentQuestion + 1;
 
-if (nextQuetions < questions.length) {
-  SetCurrentQuestion(nextQuetions);
-}
-else {
-  SetShowScore(true)
-}
+    if (nextQuetions < selected_num) {
+
+        SetCurrentQuestion(nextQuetions);
+    }
+    else {
+        SetShowScore(true)
+    }
 }
 
+//display emoji
+const half_selected_num = selected_num / 2;
+let check = "";
+
+if(score >= half_selected_num){
+ 
+    check = "yes!!!!!!!!!!!!!!!!!!";
+
+    }
+    else
+    {
+
+    check = "No............";
+
+    }
 
 
 return (
 
-  <div className="answers">
-  <br/>  
+<div className="answers">
+ <h4 className="my_line">Player Name: {msg}</h4>
+
+  <div className="answers"> 
+  <br/>
   
-<div>
- 
-<>
-  
+  <select name='option' onChange={optionChange}>
+    <option value="10">All questions</option>
+    <option value="5">5 questions</option>
+    <option value="7">7 questions</option>
+    
+   
+  </select>
+  <hr className="line"/>   
+
+  </div> 
+
+  <br/>
+  <div>
+
+  <>
+
   <div className="answers">
-    {showScore ? (
-      <div className='score-section'>
-         <div className="username">{msg}</div>
-        You scored {score} out of {questions.length}
+      
+     {showScore ? (
+
+      <div className='score-section'>      
+      You scored {score} out of {selected_num}
+
+      {<br/>}
+      {check}
+
       </div>
-    )
+      )
       :
       (
 
-        <>
-          <div>
+            <>
+            <div>
             <div className='question-count'>
-              <span>Question {currentQuestion + 1 }
+            <span>Question {currentQuestion + 1 }
 
-               {space}
-              
-              </span>{questions.length }
+             {space}
+            
+            </span>{selected_num}
             </div>
             <div className='answer-section'>
-             
-            {questions[random_question].questionText}
+            
+            {random[currentQuestion].questionText}
+            
+            
             </div>
+            </div>
+
+           <div className='answer-section'>
+                 { 
+                    random[currentQuestion].answerOptions.map((answerOptions) => (
+
+                        <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>
+                        {answerOptions.answerText}</button>
+                    ))
+                 }
           </div>
 
-          <div className='answer-section'>
-            {
-             questions[random_question].answerOptions.map((answerOptions) => (
-                <button onClick={() => handleAnswerButtonClick(answerOptions.isCorrect)}>{answerOptions.answerText}</button>
-              ))
-            }
-          </div>
-        </>
-      )}
-  </div>
+      </>
+    )}
+ 
+</div>
+
 </>
-
-             
+     
+<div>
                 
-        </div>
-
-  </div>
+ 
+</div>
+           
+</div>
+ 
+</div>
 );
 }
 
