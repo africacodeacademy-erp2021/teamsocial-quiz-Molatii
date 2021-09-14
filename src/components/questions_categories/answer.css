@@ -1,7 +1,8 @@
 .answers{
 
     align-content: center;
-    position: relative;
+    text-align: center;
+    align-items: center;
     left: 290px;
 
 }
@@ -11,4 +12,8 @@
     color: blue;
    
     
+}
+.my_line{
+
+    color: rgb(77, 19, 236);
 }

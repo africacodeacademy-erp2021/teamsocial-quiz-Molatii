@@ -159,14 +159,6 @@ const [selected_num, setSelected_num] = useState(10);
         let temp = questions;
         setRandom(temp);      
 
-       }else{
-
-        shuffle_questions(questions);
-        questions.splice(10,10);
-        let temp = questions;
-        setRandom(temp);
-       
-
        }
 
         return selected_num;
@@ -219,7 +211,7 @@ return (
   <br/>
   
   <select name='option' onChange={optionChange}>
-    <option value="10">All questions</option>
+    <option >select number of questions</option>
     <option value="5">5 questions</option>
     <option value="7">7 questions</option>
     
