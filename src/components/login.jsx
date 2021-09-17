@@ -1,12 +1,11 @@
 import React from 'react';
 import validate from './form_validation/validation';
 import MyForm from './form_validation/myForm';
-import { useState } from 'react';
-import Categories from './categories';
 
 
 
-const Login = ({ submitForm }) => {
+
+const Login = ({submitForm }) => {
 
 
   const { handleChange, handleSubmit, values, errors } = MyForm(submitForm,validate);
@@ -38,7 +37,7 @@ const Login = ({ submitForm }) => {
       </form>
       
     </div>
-    /////
+    
   );
 };
 

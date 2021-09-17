@@ -1,7 +1,9 @@
 
+
 export default function Validation(values) {
   let errors = {};
-
+ 
+  
     if (!values.username.trim()) {
 
       errors.username = 'Please Enter User Name';
@@ -12,6 +14,7 @@ export default function Validation(values) {
       errors.username = 'Username Characters Should be below 30 and above 2';
       console.log('Failed');
 
+<<<<<<< Updated upstream
     }else{
 
     //var user = values.username;
@@ -20,6 +23,13 @@ export default function Validation(values) {
 
       //console.log('Your In...' + user);
     } 
+=======
+    } else{
+      var user = values.username;
+      console.log('Your In...' + user);
+      
+    }
+>>>>>>> Stashed changes
     
     return errors;
 
