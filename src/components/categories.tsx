@@ -10,12 +10,13 @@ import { useContext } from 'react';
 
  function Categories() {
     const msg = useContext(User);
+
+
     
     const playername= JSON.stringify(localStorage.getItem('username'));
     const myuserone = playername.replace('"','');
     const myuser = myuserone.replace('"','');        
-   
-    //
+      
     function MyContent(){
      let history = useHistory();
       const click_fifa_questions = () => history.push("/Fifa");
@@ -28,16 +29,18 @@ import { useContext } from 'react';
               <div className='player'>Player Name : {myuser}   </div>             
            </header>
            <br/>
-           <div className='cat'><h2>select one of the categories</h2></div>    
+      
+                 <div className='cat'><h2>select one of the categories</h2></div>    
 
-      <hr className="line"/>   
+        
 
       <main> 
            <button  className='my_btn' onClick= {click_general_questions} >General_questions</button> 
            <button  className='my_btn' onClick= {clickH_math_questions}>Math_questions</button> 
            <button  className='my_btn' onClick= {click_fifa_questions}>Fifa_questions </button>       
       </main> 
-      
+
+            
       </div>
   )
   }

@@ -1,15 +1,14 @@
 import React from 'react';
 import validate from './form_validation/validation';
 import MyForm from './form_validation/myForm';
-import { useState } from 'react';
-import Categories from './categories';
 
 
 
-const Login = ({ submitForm }) => {
+
+const Login = ({submitForm }:{submitForm:any }) => {
 
 
-  const { handleChange, handleSubmit, values, errors } = MyForm(submitForm,validate);
+  const { handleChange, handleSubmit, values, errors } :any= MyForm(submitForm,validate);
  
  
   const playerName = ()=>{
@@ -38,7 +37,7 @@ const Login = ({ submitForm }) => {
       </form>
       
     </div>
-    /////
+    
   );
 };
 
