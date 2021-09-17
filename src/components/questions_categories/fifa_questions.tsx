@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {BrowserRouter as Router, Route, Switch, useHistory } from 'react-router-dom';
 import './answer.css';
 import Myhappy_emoji from '../scraping/emoji_happy/images/104-1046176_smiling-emoji-clipart.png';
-import Mysad_emoji from '../scraping/emoji_sad/images/Emoji-1.jpg';
+import Mysad_emoji from '../scraping/emoji_sad/images/Emoji-1.jpg'; 
 import { useContext } from 'react';
 import { User } from '../User';
 import './answer.css';
